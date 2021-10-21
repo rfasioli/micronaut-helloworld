@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: helloWorld
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        descriptions: true
+        step: PT1M
+    enabled: true
+  server:
+    port: 8080
+
+greeting:
+  message: Hello
