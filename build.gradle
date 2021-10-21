@@ -1,6 +1,7 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.0"
     id("io.micronaut.application") version "2.0.6"
+    id 'org.jetbrains.kotlin.jvm' version '1.6.0-RC'
 }
 
 version = "0.1"
@@ -29,6 +30,7 @@ dependencies {
     implementation("javax.annotation:javax.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
 }
 
@@ -40,6 +42,19 @@ java {
     sourceCompatibility = JavaVersion.toVersion("11")
     targetCompatibility = JavaVersion.toVersion("11")
 }
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
 
-
+nativeImage {
+    args('--verbose')
+    imageName('hello-world-application')
+}
 

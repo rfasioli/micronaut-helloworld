@@ -14,3 +14,7 @@
 
 - [Micronaut Management documentation](https://docs.micronaut.io/latest/guide/index.html#management)
 
+## Setup
+1) Install GraalVM jdk: `sdk install java 21.3.0.r11-grl`
+2) Install native image component: `gu install native-image`
+3) Build native: `./gradlew nativeImage`
